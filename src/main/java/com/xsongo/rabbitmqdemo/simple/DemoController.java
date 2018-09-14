@@ -14,6 +14,9 @@ public class DemoController {
     @Autowired
     AmqpTemplate rabbitmqTemplate;
 
+    /*
+    * 请求格式需带参数，例：http://127.0.0.1:8080/send?str=111
+    */
     @GetMapping("/send")
     public String send(String msg){
         rabbitmqTemplate.convertAndSend("okong",msg);
